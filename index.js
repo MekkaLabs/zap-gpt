@@ -2,12 +2,9 @@ import { create } from 'venom-bot'
 import * as dotenv from 'dotenv'
 import { Configuration, OpenAIApi } from "openai"
 
+
 dotenv.config()
 
-const port = process.env.PORT || 8080;
-app.listen(port, () => {
-    console.log(`Aplicativo rodando na porta ${port}`);
-});
 
 create({
     session: 'Chat-GPT',
@@ -100,3 +97,11 @@ const commands = (client, message) => {
 async function start(client) {
     client.onAnyMessage((message) => commands(client, message));
 }
+
+
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+    console.log(
+        `Hello from Cloud Run! The container started successfully and is listening for HTTP requests on ${PORT}`
+    );
+});
