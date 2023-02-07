@@ -4,6 +4,11 @@ import { Configuration, OpenAIApi } from "openai"
 
 dotenv.config()
 
+const port = process.env.PORT || 8080;
+app.listen(port, () => {
+    console.log(`Aplicativo rodando na porta ${port}`);
+});
+
 create({
     session: 'Chat-GPT',
     multidevice: true
